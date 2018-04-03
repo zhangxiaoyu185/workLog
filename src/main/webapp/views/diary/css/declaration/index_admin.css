@@ -1,0 +1,33 @@
+/* CSS Document */
+.addBtn{
+	float:right;
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	margin-top:-5px;
+	text-align:center;
+	vertical-align:middle;
+	color:#ffffff;
+	font-size:14px;
+	line-height:25px;
+	background:#64b9f5;
+	border:none;
+	width:68px;
+	-moz-border-radius: 3px;      /* Gecko browsers */
+   -webkit-border-radius: 3px;   /* Webkit browsers */
+   border-radius:3px;            /* W3C syntax */
+}
+.searchBtn{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	text-align:center;
+	vertical-align:middle;
+	color:#ffffff;
+	font-size:14px;
+	line-height:25px;
+	background:#64b9f5;
+	border:none;
+	width:68px;
+	-moz-border-radius: 3px;      /* Gecko browsers */
+   -webkit-border-radius: 3px;   /* Webkit browsers */
+   border-radius:3px;            /* W3C syntax */
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="localCacheScope" value="STATEMENT" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias type="com.tzt.workLog.entity.GzrzDayTask" alias="GzrzDayTask"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzGroup" alias="GzrzGroup"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzGroupUser" alias="GzrzGroupUser"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzModel" alias="GzrzModel"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzModelUser" alias="GzrzModelUser"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzMonthTask" alias="GzrzMonthTask"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzProject" alias="GzrzProject"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzRemarks" alias="GzrzRemarks"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzRole" alias="GzrzRole"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzUser" alias="GzrzUser"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzWeekTask" alias="GzrzWeekTask"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzAttachment" alias="GzrzAttachment"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzBug" alias="GzrzBug"/>
+		<typeAlias type="com.tzt.workLog.entity.GzrzCoreFunction" alias="GzrzCoreFunction"/>
+		<typeAlias type="com.tzt.workLog.entity.CoreTlog" alias="CoreTlog"/>
+		<typeAlias type="com.tzt.workLog.entity.ErrorLog" alias="ErrorLog"/>
+	</typeAliases>
+
+	<plugins>
+		<plugin interceptor="com.tzt.workLog.core.mybatis.plugin.SelectCountSqlInterceptor" />
+		<plugin interceptor="com.tzt.workLog.core.mybatis.plugin.OffsetLimitInterceptor">
+			<property name="dialectClass" value="com.tzt.workLog.core.mybatis.dialect.MySQLDialect" />
+		</plugin>
+	</plugins>
+
+	<mappers>
+		<mapper resource="com/tzt/workLog/mapper/GzrzDayTaskMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzGroupMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzGroupUserMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzModelMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzModelUserMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzMonthTaskMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzProjectMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzRemarksMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzRoleMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzUserMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzWeekTaskMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzAttachmentMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzBugMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/GzrzCoreFunctionMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/CoreTlogMapper.xml"/>
+		<mapper resource="com/tzt/workLog/mapper/ErrorLogMapper.xml"/>
+	</mappers>
+</configuration>

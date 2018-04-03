@@ -1,0 +1,665 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工作日志申报系统</title>
+<link type="text/css" rel="stylesheet" href="../css/common/base-min.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/index.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/index_director.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/dialog-box.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/datepicker/jquery-ui.css" media="all" />
+<script type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="../ckfinder/ckfinder.js"></script>
+<script type="text/javascript" src="../js/declaration/numrel.js"></script>
+<script type="text/javascript" src="../js/declaration/index_director3.js"></script>
+<script type="text/javascript" src="../js/declaration/dialog-box-director3.js"></script>
+</head>
+
+<body>
+    <div class="headerBox">
+        <!--<i class="i-top"><img src="../images/declaration/index_top.png"/></i>-->
+        <img src="../images/declaration/index_top.png"/>
+    </div>
+    <div class="contentBox">
+        <div class="leftBox">
+        
+    <!--<p class="showbtn"><a href="javascript:void(0);">显示遮罩层</a></p>-->
+    
+            <ul class="nav">
+                <li class="nav-li">
+                    <ul class="nav-top">
+                        <li class="nav-top-li">
+                            <p class="p-text" id="username"></p>
+                        </li>
+                        <li class="nav-top-li">
+                            <p class="p-text p-left" id="usercode"></p>
+                            <p class="p-text p-right" id="userjob"></p>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav projectSummary-btn">项目汇总</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav peopleSummary-btn">人员汇总</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav bug-btn">bug管理</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav showbtn modifyPwd-btn">修改密码</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav exit-btn">退出登录</button>
+                        </li>
+                     </ul><!--end <ul class="nav-top"> -->
+                    
+                </li>
+                
+                <!-- <li class="nav-li">
+                    <p class="p-year currentYear" showtype="true"></p>
+                    <ul class="nav-middle currentMonth">
+                        
+                    </ul>
+                </li> -->
+                
+               <!-- <li class="nav-li">
+                    <p class="p-year lastYear" showtype="false"></p>
+                    <ul class="nav-middle lastMonth">
+                    </ul>
+                </li> -->
+            </ul><!--end <ul class="nav"> -->
+        </div><!--end <div class="leftBox"> -->
+        
+         <!--bug管理-->
+        <div class="rightBox bugManage">
+            <div class="rightTop2 greyBox">
+                <span>首页 > bug管理</span>
+				<input type="button" class="addBtn showbtn addbug" value="新增"></input>
+            </div>
+            
+            <div class="rightContent2 manageBox">
+            
+            </div>   <!--end  <div class="rightContent2">-->
+            
+        </div><!--end  <div class="rightBox bugManage">-->
+        <!--bug管理-->
+    </div>
+   	<div class="showarrow"></div>
+   	<div class="showremark">我是一个备注层</div> 
+    <!--以下为遮罩层-->
+    <div class="dialog-bg"></div>
+    <div class="dialog-box" style="display:none">
+        <!-- 修改密码 -->
+        <div class="modifyPwd-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">修改密码</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                    	<li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">&nbsp;&nbsp;</font>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span>
+                            <span class="inline-block code width200"></span>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">&nbsp;&nbsp;</font>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                            <span class="inline-block name width200"></span>    
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>旧&nbsp;&nbsp;密&nbsp;&nbsp;码</span>
+                            <input style="ime-mode: disabled;" class="dialog-input oldpwd width200" type="password" value="请输入旧密码" onpaste="return false" onfocus="this.style.imeMode='disabled'"/>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>新&nbsp;&nbsp;密&nbsp;&nbsp;码</span>
+                            <input style="ime-mode: disabled;" class="dialog-input newpwd width200" type="password" value="请输入新密码" onpaste="return false" onfocus="this.style.imeMode='disabled'"/>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>确认密码</span>
+                            <input style="ime-mode: disabled;" class="dialog-input repwd width200" type="password" value="请输入确认密码" onpaste="return false" onfocus="this.style.imeMode='disabled'"/>   
+                        </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="modifyPwd-box">-->
+	<!-- 修改密码-->
+	
+	<!-- 添加bug -->
+        <div class="bug-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">添加bug</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content  align-center">
+                    <ul class="dialog-list font-big align-left">
+                    	<li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>级别</span>
+                            <div class="select-box text-bugLevel">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id="1">1</li>
+                                    <li data-id="2">2</li>
+                                    <li data-id="3">3</li>
+                                    <li data-id="4">4</li>
+                                </ul>
+                            </div>  
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>严重程度</span>
+                            <div class="select-box text-bugSeverity">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id="1">1</li>
+                                    <li data-id="2">2</li>
+                                    <li data-id="3">3</li>
+                                    <li data-id="4">4</li>
+                                </ul>
+                            </div> 
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>标题</span>
+                            <input class="dialog-input width582 bugTitle" type="text" value="请输入标题"/>  
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>所属项目</span>
+                            <div class="select-box text-bugPro">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <!-- <li data-id="1">1</li>
+                                    <li data-id="2">2</li>
+                                    <li data-id="3">3</li>
+                                    <li data-id="4">4</li> -->
+                                </ul>
+                            </div>  
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>所属模块</span>
+                            <div class="select-box text-bugModel">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <!-- <li data-id="1">1</li>
+                                    <li data-id="2">2</li>
+                                    <li data-id="3">3</li>
+                                    <li data-id="4">4</li> -->
+                                </ul>
+                            </div> 
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>影响版本</span>
+                            <input class="dialog-input width200 bugAffectVersion" type="text" value="请输入版本"/>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>操作系统</span>
+                            <div class="select-box text-bugSystemType">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id='0'>全部</li>
+									<li data-id='1'>Windows</li>
+									<li data-id='2'>Windows 8</li>
+									<li data-id='3'>Windows 7</li>
+									<li data-id='4'>Windows Vista</li>
+									<li data-id='5'>Windows XP</li>
+									<li data-id='6'>Windows 2012</li>
+									<li data-id='7'>Windows 2008</li>
+									<li data-id='8'>Windows 2003</li>
+									<li data-id='9'>Windows 2000</li>
+									<li data-id='10'>Android</li>
+									<li data-id='11'>IOS</li>
+									<li data-id='12'>WP8</li>
+									<li data-id='13'>WP7</li>
+									<li data-id='14'>Symbian</li>
+									<li data-id='15'>Linux</li>
+									<li data-id='16'>FreeBSD</li>
+									<li data-id='17'>OS X</li>
+									<li data-id='18'>Unix</li>
+									<li data-id='19'>其他</li>
+                                </ul>
+                            </div> 
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>浏览器</span>
+                            <div class="select-box text-bugBrowser">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id='0'>全部</li>
+									<li data-id='1'>IE系列</li>
+									<li data-id='2'>IE11</li>
+									<li data-id='3'>IE10</li>
+									<li data-id='4'>IE9</li>
+									<li data-id='5'>IE8</li>
+									<li data-id='6'>IE7</li>
+									<li data-id='7'>IE6</li>
+									<li data-id='8'>chrome</li>
+									<li data-id='9'>firefox系列</li>
+									<li data-id='10'>firefox4</li>
+									<li data-id='11'>firefox3</li>
+									<li datli'12'>firefox2</li>
+									<li data-id='13'>opera系列</li>
+									<li data-id='14'>opera11</li>
+									<li data-id='15'>opera10</li>
+									<li data-id='16'>opera9</li>
+									<li data-id='17'>safari</li>
+									<li data-id='18'>傲游</li>
+									<li data-id='19'>UC</li>
+									<li data-id='20'>360</li>
+									<li data-id='21'>其他</li>
+                                </ul>
+                            </div>  
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>BUG类型</span>
+                            <div class="select-box text-bugType">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id='0'>代码错误</li>
+									<li data-id='1'>界面优化</li>
+									<li data-id='2'>设计缺陷</li>
+									<li data-id='3'>配置相关</li>
+									<li data-id='4'>安装部署</li>
+									<li data-id='5'>安全相关</li>
+									<li data-id='6'>性能问题</li>
+									<li data-id='7'>标准规范</li>
+									<li data-id='8'>测试脚本</li>
+									<li data-id='9'>其他</li>
+                                </ul>
+                            </div> 
+                        </li>
+                        <li class="dialog-list-li">
+                           <!--  <span class="align-left align-middle inline-block85"><font color="red">*</font>状态</span>
+                            <div class="select-box text-bugStatus">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id='0'>Unsolved</li>
+									<li data-id='1'>Solving</li>
+									<li data-id='2'>ByDesign</li>
+									<li data-id='3'>Duplicate</li>
+									<li data-id='4'>NotRepro</li>
+									<li data-id='5'>Fixed</li>
+									<li data-id='6'>External</li>
+									<li data-id='7'>Postponed</li>
+									<li data-id='8'>WonotFix</li>
+									<li data-id='9'>Solved</li>
+                                </ul>
+                            </div>  
+                            <span class="inline-block85"></span> -->
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>指派给</span>
+                            <div class="select-box text-bugAssigned">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <!-- <li>1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li> -->
+                                </ul>
+                            </div> 
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">*</font>内容</span>
+                            <div class="inline-block">
+	                            <textarea name="bugContent" class="dialog-textarea width582 bugContent"></textarea>
+	                            <script type="text/javascript">
+						        		CKEDITOR.replace( 'bugContent' , { height: '240px', 
+						        			width: '582px',
+						        			extraPlugins: 'codesnippet',
+						        			codeSnippet_theme: 'zenburn'
+						        		} );
+	        					</script> 
+        					</div>  
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85">备注</span>
+                            <textarea class="dialog-textarea width582 bugRemarks"></textarea>   
+                        </li>
+                        <!-- <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">&nbsp;</font>附件</span>
+                            <ul class="inline-block attachmentList">
+                            	<li class="margin-b">
+                            		<input class="btn-grey addAttachment" type="button" value="添加附件"/>
+                            	</li>
+	                            <li class="margin-b">
+		                           <input class="dialog-input bugAttachment readonly="readonly"" type="text" value=""/>
+		                           <input class="attachmentFile" type="file" style="display:none;"/>
+		                           <input class="btn-grey browse" type="button" value="浏览"/>
+		                           <input class="btn-grey addAttachment" type="button" value="增加"/>
+	                           </li>
+	                           <li class="margin-b">
+		                           <input class="dialog-input bugAttachment readonly="readonly"" type="text" value=""/>
+		                           <input class="attachmentFile" type="file" style="display:none;"/>
+		                           <input class="btn-grey browse" type="button" value="浏览"/>
+		                           <input class="btn-grey addAttachment" type="button" value="增加"/>
+		                           <input class="btn-grey delAttachment" type="button" value="删除"/>
+	                           </li>
+        					</ul>  
+                        </li> -->
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="bug-box">-->
+	<!-- 添加bug-->
+	<!-- 修改bug -->
+        <div class="modifyBug-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">修改bug</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content  align-center">
+                    <ul class="dialog-list font-big align-left">
+                    	<li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>级别</span>
+                            <div class="select-box text-bugLevel">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id="1">1</li>
+                                    <li data-id="2">2</li>
+                                    <li data-id="3">3</li>
+                                    <li data-id="4">4</li>
+                                </ul>
+                            </div>  
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>严重程度</span>
+                            <div class="select-box text-bugSeverity">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id="1">1</li>
+                                    <li data-id="2">2</li>
+                                    <li data-id="3">3</li>
+                                    <li data-id="4">4</li>
+                                </ul>
+                            </div> 
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>标题</span>
+                            <input class="dialog-input width582 bugTitle" type="text" value="请输入标题"/>  
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>所属项目</span>
+                            <div class="select-box text-bugPro">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <!-- <li data-id="1">1</li>
+                                    <li data-id="2">2</li>
+                                    <li data-id="3">3</li>
+                                    <li data-id="4">4</li> -->
+                                </ul>
+                            </div>  
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>所属模块</span>
+                            <div class="select-box text-bugModel">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <!-- <li data-id="1">1</li>
+                                    <li data-id="2">2</li>
+                                    <li data-id="3">3</li>
+                                    <li data-id="4">4</li> -->
+                                </ul>
+                            </div> 
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>影响版本</span>
+                            <input class="dialog-input width200 bugAffectVersion" type="text" value="请输入版本"/>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>操作系统</span>
+                            <div class="select-box text-bugSystemType">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id='0'>全部</li>
+									<li data-id='1'>Windows</li>
+									<li data-id='2'>Windows 8</li>
+									<li data-id='3'>Windows 7</li>
+									<li data-id='4'>Windows Vista</li>
+									<li data-id='5'>Windows XP</li>
+									<li data-id='6'>Windows 2012</li>
+									<li data-id='7'>Windows 2008</li>
+									<li data-id='8'>Windows 2003</li>
+									<li data-id='9'>Windows 2000</li>
+									<li data-id='10'>Android</li>
+									<li data-id='11'>IOS</li>
+									<li data-id='12'>WP8</li>
+									<li data-id='13'>WP7</li>
+									<li data-id='14'>Symbian</li>
+									<li data-id='15'>Linux</li>
+									<li data-id='16'>FreeBSD</li>
+									<li data-id='17'>OS X</li>
+									<li data-id='18'>Unix</li>
+									<li data-id='19'>其他</li>
+                                </ul>
+                            </div> 
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>浏览器</span>
+                            <div class="select-box text-bugBrowser">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id='0'>全部</li>
+									<li data-id='1'>IE系列</li>
+									<li data-id='2'>IE11</li>
+									<li data-id='3'>IE10</li>
+									<li data-id='4'>IE9</li>
+									<li data-id='5'>IE8</li>
+									<li data-id='6'>IE7</li>
+									<li data-id='7'>IE6</li>
+									<li data-id='8'>chrome</li>
+									<li data-id='9'>firefox系列</li>
+									<li data-id='10'>firefox4</li>
+									<li data-id='11'>firefox3</li>
+									<li datli'12'>firefox2</li>
+									<li data-id='13'>opera系列</li>
+									<li data-id='14'>opera11</li>
+									<li data-id='15'>opera10</li>
+									<li data-id='16'>opera9</li>
+									<li data-id='17'>safari</li>
+									<li data-id='18'>傲游</li>
+									<li data-id='19'>UC</li>
+									<li data-id='20'>360</li>
+									<li data-id='21'>其他</li>
+                                </ul>
+                            </div>  
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>BUG类型</span>
+                            <div class="select-box text-bugType">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id='0'>代码错误</li>
+									<li data-id='1'>界面优化</li>
+									<li data-id='2'>设计缺陷</li>
+									<li data-id='3'>配置相关</li>
+									<li data-id='4'>安装部署</li>
+									<li data-id='5'>安全相关</li>
+									<li data-id='6'>性能问题</li>
+									<li data-id='7'>标准规范</li>
+									<li data-id='8'>测试脚本</li>
+									<li data-id='9'>其他</li>
+                                </ul>
+                            </div> 
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>状态</span>
+                            <div class="select-box text-bugStatus">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <li data-id='0'>Unsolved</li>
+									<li data-id='1'>Solving</li>
+									<li data-id='2'>ByDesign</li>
+									<li data-id='3'>Duplicate</li>
+									<li data-id='4'>NotRepro</li>
+									<li data-id='5'>Fixed</li>
+									<li data-id='6'>External</li>
+									<li data-id='7'>Postponed</li>
+									<li data-id='8'>WonotFix</li>
+									<li data-id='9'>Solved</li>
+									<li data-id='10'>Processed</li>
+                                </ul>
+                            </div>  
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>指派给</span>
+                            <div class="select-box text-bugAssigned">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                    <!-- <li>1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li> -->
+                                </ul>
+                            </div> 
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">*</font>内容</span>
+                            <div class="inline-block">
+	                            <textarea name="bugModifyContent" class="dialog-textarea width582 bugModifyContent"></textarea>
+	                            <script type="text/javascript">
+						        		CKEDITOR.replace( 'bugModifyContent' , { height: '240px', 
+						        			width: '582px',
+						        			extraPlugins: 'codesnippet',
+						        			codeSnippet_theme: 'zenburn'
+						        		} );
+	        					</script> 
+        					</div>  
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">&nbsp;</font>备注</span>
+                            <textarea class="dialog-textarea width582 bugRemarks"></textarea>   
+                        </li>
+                        <!-- <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>解决人</span>
+                            <div class="select-box text-bugSolved">
+                                <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul">
+                                </ul>
+                            </div> 
+                        </li> -->
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">&nbsp;</font>指派记录</span>
+                            <div class="align-left align-top inline-block width582 bugAssignedRecord" readonly="readonly"></div>   
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">&nbsp;</font>状态记录</span>
+                            <div class="align-left align-top inline-block width582 bugStatusRecord" readonly="readonly"></div>   
+                        </li>
+                        <!-- <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">&nbsp;</font>附件</span>
+                            <ul class="inline-block attachmentList">
+                            	<li class="margin-b">
+                            		<input class="btn-grey addAttachment" type="button" value="添加附件"/>
+                            	</li>
+	                            <li class="margin-b">
+		                           <input class="dialog-input bugAttachment readonly="readonly"" type="text" value=""/>
+		                           <input class="attachmentFile" type="file" style="display:none;"/>
+		                           <input class="btn-grey browse" type="button" value="浏览"/>
+		                           <input class="btn-grey addAttachment" type="button" value="增加"/>
+	                           </li>
+	                           <li class="margin-b">
+		                           <input class="dialog-input bugAttachment readonly="readonly"" type="text" value=""/>
+		                           <input class="attachmentFile" type="file" style="display:none;"/>
+		                           <input class="btn-grey browse" type="button" value="浏览"/>
+		                           <input class="btn-grey addAttachment" type="button" value="增加"/>
+		                           <input class="btn-grey delAttachment" type="button" value="删除"/>
+	                           </li>
+        					</ul>  
+                        </li> -->
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="modifyBug-box">-->
+	<!-- 修改bug-->
+	<!-- bug详情 -->
+        <div class="detailBug-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">Bug详情</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content  align-center">
+                    <ul class="dialog-list font-big align-left">
+                    	<li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>级别：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugLevel">1</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>严重程度：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugSeverity">1</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>标题：</span>
+                            <span class="align-left align-middle inline-block width582 bugTitle">我是标题君</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>所属项目：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugPro">我是项目君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>所属模块：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugModel">我是模块君</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>影响版本：</span>
+                            <span class="align-left align-middle inline-block width200 bugAffectVersion">我是版本君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>操作系统：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugSystemType">我是系统君</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>浏览器：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugBrowser">我是浏览器君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>BUG类型：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugType">我是BUG类型君</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>状态：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugStatus">我是状态君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>指派给：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugAssigned">我是被指派君</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>创建者：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugCreator">我是创建君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>创建时间：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugCreatTime">2015-11-16 10:36:30</span>
+                        </li>
+                       <!--  <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>解决人：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugSolved">我是解决君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>解决时间：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugSolvedTime">2015-11-16 10:42:30</span>
+                        </li> -->
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">*</font>内容：</span>
+                            <div class="align-left align-top inline-block width582 bugContents">
+                            	<p>I威武哦很舒育与司法毒<img alt="" src="/workLog/userfiles/images/Tulips.jpg" style="float:right; height:75px; width:100px" /></p>
+								<p>年福建省肯定和覅收到了福禄寿你叫谁看到了。</p>
+						    </div>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">&nbsp;</font>备注：</span>
+                            <div class="align-left align-top inline-block width582 bugRemarks">
+                            1、我是一个备注，备注，备注，备注，备注，备注，备注，备注，备注<br />
+                            2、只是一个备注<br />
+                            3、备……备……注<br />
+                            </div>   
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">&nbsp;</font>指派记录：</span>   
+                        	<div class="align-left align-top inline-block width582 bugAssignedRecord">
+                            1、2015-11-13 10:42:30,由张三指派给李四<br />
+                            2、2015-11-16 10:42:30,由李四指派给王五<br />
+                            </div>   
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">&nbsp;</font>状态记录：</span>
+                            <div class="align-left align-top inline-block width582 bugStatusRecord">
+                            1、2015-11-13 10:42:30,由张三把UnSolved状态给成Solving<br />
+                            2、2015-11-16 11:42:30,由王五把Solving状态给成ByDesign<br />
+                            </div>   
+                        </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <!-- <button class="dialog-btn">提交</button> -->
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="detailBug-box">-->
+	<!-- bug详情-->
+
+    </div>
+</body>
+</html>

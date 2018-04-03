@@ -1,0 +1,76 @@
+/* CSS Document */
+.horizontal-nav{
+	width:100%;
+	padding:0;
+}
+.horizontal-nav-li{
+	display:inline-block;
+	border:1px solid #e6e6e6;
+	font-size:14px;
+	line-height:44px;
+	background:#f3f3f3;
+	color:#000000;
+	margin-right:0px;
+	padding:0;
+	text-align:center;
+	width:20%;
+	cursor:pointer;
+}
+/*.horizontal-nav-li:hover{
+	background:#ffffff;
+	color:#ff0000;
+}*/
+
+.img-addpro{
+	border:none;
+	display:inline-block;
+	margin-right:5px;
+	width:19px;
+	height:19px;
+	background:url(../../images/declaration/addpro.png) no-repeat center;
+	vertical-align:middle;
+}
+/*.img-addpro:hover{
+	background:url(../../images/declaration/addpro2.png) no-repeat center;
+}*/
+.canvasBox{
+	margin-left:-10px;
+}
+.img-note2{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	width:18px;
+	height:18px;
+	vertical-align:top;
+	
+	/*background: url(../../images/declaration/note_edit2.png) no-repeat center;*/
+}
+.pro-note{
+	display:inline-block;
+	zoom:1;*display:inline;
+	font-size:12px;
+	line-height:18px;
+	vertical-align:top;
+	width:98%;
+}
+.pink-edt{
+	display:inline-block;
+	zoom:1;*display:inline;
+	width:220px;
+	float:right;
+	line-height:18px;
+}
+.pink-edt .p-edit{
+	line-height:18px;
+}
+.pinkBox{
+	background:#ffe5e6;
+	border:1px solid #f4d1d5;
+	padding:5px;
+	width:100%;
+}
+.people-group{
+	width:100%;
+	border-bottom:2px solid #e6e6e6;
+	
+}

@@ -1,0 +1,31 @@
+*.class
+.settings
+.classpath
+git.properties
+
+# ide
+*.iml
+.idea
+.vscode
+.project
+
+# log
+*.log
+
+# node_modules
+node_modules/
+bower_components/
+.npm
+
+# build
+target/
+# dist/
+
+# other
+.svn
+.DS_Store
+
+#resource
+global/
+database/
+mapper/

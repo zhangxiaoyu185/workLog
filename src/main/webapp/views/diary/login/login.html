@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../js/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="../js/declaration/numrel.js"></script>
+<script type="text/javascript" src="../js/login/login.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/common/base-min.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/login/login.css" media="all" />
+<title>登录</title>
+</head>
+
+<body>
+    <div class="headerBox">
+    	<i class="header-img"><img src="../images/login/icon_2.png" alt="" /></i>
+        <p class="header-title">工作日志申报系统</p>
+        <p class="header-text">没有账号、密码请联系管理员</p>
+    </div>
+    <div class="contentBox">
+		<i class="img-bg2"></i>
+    	<i class="img-bg"></i>
+        <div class="formBox" >
+            
+            <ul class="nav">
+            	<li class="nav-list">
+                	<p class="form-text">登录</p>
+                </li>
+                <li class="nav-list">
+                	<div class="inputBox">
+                		<i class="img-name"></i><input type="text" id="name" name="name" value="工号" class="input-text" onfocus="if (value =='工号'){value =''}" onblur="if (value ==''){value='工号'}" />
+                    </div>
+                </li>
+                <li class="nav-list">
+                	<div class="inputBox">
+                		<i class="img-pass"></i><input type="text" id="password" name="password" value="密码" class="input-text" onfocus="psdfocus();"/>
+                		<!-- <input type="text" id="password" name="password" value="密码" class="input-text" onfocus="if (value =='密码'){value ='';this.type='password';}"onblur="if (value ==''){value='密码';type='text';}"/> -->
+                    </div>
+                </li>
+                <li class="nav-list">
+                	<input type="checkbox" value="" id="ck_rmbUser" name="ck_rmbUser" class="input-check"><span class="span-text">记住账号</span>
+                </li>
+                <li class="nav-list">
+            		<input type="submit" value="登录" class="btn-submit" onclick="login();" />
+                </li>
+            </ul>
+        </div>
+		
+</div>
+    <div class="footerBox">
+    	<p class="footer-text">Copyright©杭州橙客电子商务有限公司</p>
+    </div>
+</body>
+</html>

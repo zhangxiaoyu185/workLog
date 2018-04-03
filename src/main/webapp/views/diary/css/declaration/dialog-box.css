@@ -1,0 +1,325 @@
+/* CSS Document */
+/*閬僵灞*/
+.dialog-bg{
+	background-color:#000;
+	position:absolute;
+	z-index:99;
+	left:0;
+	top:0;
+	display:none;
+	width:100%;
+	height:100%;
+	opacity:0.4;
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	overflow:hidden;
+}
+
+/* box */
+.dialog-box{
+	position:absolute;
+	max-width:840px; width:auto!important; width:840px;
+	left:50%;
+	max-height:600px; height:auto!important; height:600px;
+	z-index:100;
+	background:#f5f5f5;
+	border:1px solid #ddd;
+	padding:1px;
+	overflow:hidden;
+}
+.dialog-box .dialog-title{
+	height:74px;
+	font-size:21px;
+	background:#fff;
+	left:0;
+	top:0;
+	width:100%;
+	position:relative;
+	line-height:30px;
+	border-bottom:1px solid #dadada; 
+	text-align:center;
+	padding:22px;
+}
+.dialog-box .dialog-title p{
+	display:inline-block;font:'微软雅黑' 21px;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	line-height:30px;
+	color:#000;
+}
+.dialog-box .dialog-title img{
+	right:22px; 
+	position:absolute;
+	width:30px;
+	height:30px; 
+	vertical-align:top; 
+	cursor:pointer;
+}
+.dialog-content{
+	left:0;
+	top:0;
+	position:relative;
+	max-height:526px; height:auto!important; height:526px;
+	width:100%;
+	margin:0;
+	padding:0;
+	overflow:auto;
+}
+.logReport-box{
+	margin:0;
+	padding:0;
+	width:100%;
+}
+.dialog-content .dialog-module-content{
+	margin:0 20px;
+	padding:20px 0;
+	border-bottom:1px solid #dadada;
+	width:795px;
+	/*height:200px;
+	overflow:auto;*/
+}
+.dialog-module-content .p-dialog-left{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	font-size:14px;
+	width:100px;
+	margin:0;
+	padding:0;
+	vertical-align:top;
+	text-align:right;
+}
+
+.dialog-module-content .p-dialog-right{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	margin-left:10px;
+	font-size:14px;
+	line-height:44px;
+	vertical-align:top;
+	
+}
+
+.dialog-list{
+	display:inline-block;
+	/* display:-moz-inline-stack; */zoom:1;*display:inline;
+	width:690px;
+}
+.dialog-list .dialog-list-li{
+	padding:5px 0;
+}
+.dialog-list-li .p-num{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	width:30px;
+	font-size:14px;
+	vertical-align:top;
+	text-align:right;
+}
+.dialog-list-li .dialog-module-group{
+	margin-left:5px;
+	vertical-align:top;
+	display:inline-block;
+	zoom:1;*display:inline;
+	width:210px;
+	height:100px;
+}
+.dialog-module-group .dialog-magintop{
+	margin-top:12px;
+}
+.dialog-box .dialog-btn{
+	margin:40px 105px;
+	display:block;
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	line-height:44px;
+	background:#f56664;
+	border:none;
+	width:630px;
+	-moz-border-radius: 3px;      /* Gecko browsers */
+   	-webkit-border-radius: 3px;   /* Webkit browsers */
+   	border-radius:3px;            /* W3C syntax */
+}
+.dialog-textarea{
+	color:#ccc;
+	font-size:14px;
+	line-height:20px;
+	background:#fff;
+	border:1px solid #ccc;  
+	padding:10px;
+}
+.log-textarea{
+	width:420px;
+	height:100px;
+}
+.dialog-text{
+	color:#ccc;
+	font-size:14px;
+	line-height:20px;
+	background:#fff;
+	border:1px solid #ccc;
+	width:164px;
+	height:44px;  
+	padding:10px;
+}
+
+.dialog-select{
+	color:#ccc;
+	font-size:14px;
+	line-height:20px;
+	background:#fff;
+	border:1px solid #ccc;
+	width:200px;
+	height:44px;  
+	padding:10px;
+}
+
+.select-box { display:inline-block;width:200px; position:relative; font-size:14px;background:#fff;}
+.select-item {cursor:pointer; display:block; line-height:20px;color:#ccc; width:200px; height:44px; overflow:hidden;border:1px solid #ccc; padding:12px 10px;background: url(../../images/declaration/arrow.png) no-repeat 160px center;}
+.select-ul {width:200px; position:absolute; left:0; top:44px; border:1px solid #ccc; background:#fff; overflow: hidden;display:none; background:#ebebeb; z-index:999;}
+.select-ul li {display:block;height:30px;overflow:hidden;line-height:30px;width:100%;cursor:pointer;}
+.select-hover {background:#ccc;}
+
+
+.dialog-btn-add{
+	margin-left:133px;
+	display:block;
+	color:#fff;
+	font-size:14px;
+	line-height:44px;
+	text-align:center;
+	background:#b8b7b7;
+	border:none;
+	width:174px;
+	-moz-border-radius: 3px;      /* Gecko browsers */
+   	-webkit-border-radius: 3px;   /* Webkit browsers */
+   	border-radius:3px;            /* W3C syntax */
+	cursor:pointer;
+}
+.dialog-btn-add{
+	margin-left:133px;
+	display:block;
+	color:#fff;
+	font-size:14px;
+	line-height:44px;
+	text-align:center;
+	background:#b8b7b7;
+	border:none;
+	width:174px;
+	-moz-border-radius: 3px;      /* Gecko browsers */
+   	-webkit-border-radius: 3px;   /* Webkit browsers */
+   	border-radius:3px;            /* W3C syntax */
+	cursor:pointer;
+}
+
+.dialog-btn-add .img-add{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	margin-right:10px;
+	width:18px;
+	height:18px;
+	background:url(../../images/declaration/add.png) no-repeat center;
+	vertical-align:middle;
+}
+
+.p-del{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	font-size:10px;
+	color:#F00;
+	border:1px solid #F00;
+	width:15px;
+	margin:0;
+	padding:0;
+	vertical-align:top;
+	cursor:pointer;
+}
+
+.newAssignment-module-group{
+	padding-left:30px;
+	margin:12px 0;
+}
+
+.newAssignment-textarea{
+	width:590px;
+	height:100px;
+	margin:12px 0;
+}
+
+.remark-textarea{
+	width:600px;
+	height:100px;
+}
+.work-textarea{
+	width:600px;
+	height:100px;
+}
+.explanation-textarea{
+	width:600px;
+	height:100px;
+}
+.dialog-input{
+	color:#ccc;
+	font-size:14px;
+	line-height:20px;
+	background:#fff;
+	border:1px solid #ccc;
+	width:320px;
+	height:44px; 
+	padding:10px;
+}
+
+.btn-grey{
+	width:75px;
+	margin:0 5px;
+	height:34px;
+	text-align:center;
+	border:1px solid #ccc;
+	-moz-border-radius: 3px;      /* Gecko browsers */
+   	-webkit-border-radius: 3px;   /* Webkit browsers */
+   	border-radius:3px;            /* W3C syntax */
+	cursor:pointer;
+}
+.width150{
+	width:150px;
+}
+.width200{
+	width:200px;
+}
+.width582{
+	width:582px;
+}
+.align-left{
+	text-align:left;
+}
+.align-right{
+	text-align:right;
+}
+.align-center{
+	text-align:center;
+}
+.align-middle{
+	vertical-align:middle;
+}
+.align-top{
+	vertical-align:top;
+}
+.inline-block85{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	width:85px;
+}
+.inline-block{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	text-align:left;
+}
+
+.bugContents img{ 
+	max-width: 100%!important;
+	height: auto!important;
+	width:expression(this.width > 582 ? "582px" : this.width)!important;
+} 
+*html.bugContents img{ 
+	width:expression(this.width>582&&this.width>this.height?450:auto); 
+	height:expresion(this.height>450?450:auto); 
+}

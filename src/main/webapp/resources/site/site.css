@@ -1,0 +1,12 @@
+.list-group-item > a {
+	font-weight: 600;
+}
+
+.list-group-item.disabled > a {
+	font-weight: normal;
+}
+
+.list-group-item.disabled > ul {
+	display: none;
+}
+

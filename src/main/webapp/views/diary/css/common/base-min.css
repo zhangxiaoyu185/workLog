@@ -1,0 +1,252 @@
+﻿@charset "utf-8";
+/*异步加载CSS文件方法
+@import url("http://a.tzt.cn/common/css/base-min.css");
+*/
+/*
+理念：
+1. reset 的目的不是清除浏览器的默认样式，这仅是部分工作。清除和重置是紧密不可分的。
+2. reset 的目的不是让默认样式在所有浏览器下一致，而是减少默认样式有可能带来的问题。
+3. reset 期望提供一套普适通用的基础样式。但没有银弹，推荐根据具体需求，裁剪和修改后再使用。
+特色：1. 适应中文；2. 基于最新主流浏览器。
+维护：YYY 1037159943@qq.com
+*/
+
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */ 
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */ 
+pre, /* text formatting elements 文本格式元素 */
+ form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */ 
+ th, td /* table elements 表格元素 */ {
+	margin:0;
+	padding:0;
+}
+/**
+* @ 设置默认字体 *
+* @ 这里的\5b8b\4f53就是代表宋体
+* @注释乱码：强烈建议不要用中文注释。font-family:'宋体'
+* @常用中文字体解码
+新细明体 \65B0\7EC6\660E\4F53
+细明体 \7EC6\660E\4F53
+标楷体 \6807\6977\4F53
+黑体 \9ED1\4F53
+宋体 \5B8B\4F53
+新宋体 \65B0\5B8B\4F53
+仿宋 \4EFF\5B8B
+楷体 \6977\4F53
+仿宋_GB2312 \4EFF\5B8B_GB2312
+楷体_GB2312 \6977\4F53_GB2312
+微软正黑体 \5FAE\x8F6F\6B63\9ED1\4F53
+微软雅黑 \5FAE\8F6F\96C5\9ED1
+
+*,*:active,*:active,*:link{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent;
+	tap-highlight-color:rgba(0,0,0,0);
+	tap-highlight-color:transparent;
+	border-style:none; outline:none;
+}*/
+body{-webkit-text-size-adjust:none; /*如果文字＜12px无效*/
+	-webkit-touch-callout:none;/*禁止用户在新窗口弹出页面*/
+	/* -webkit-user-select:none; *//*禁止用户在页面选择复制*/
+	/* -moz-user-select：none; */
+}
+body, button, input, select, textarea /* for ie */ {
+	font:12px/1.5 Tahoma, Arial,\5FAE\8F6F\96C5\9ED1,\5b8b\4f53, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size:100%;
+}
+address, cite, dfn, em, b,caption,code,strong,th,var,em,i{
+	font-style:normal;
+	font-weight:normal;
+} /* 将斜体扶正 */
+code, kbd, pre, samp {
+	font-family:courier new, courier, monospace;
+} /* 统一等宽字体 */
+small {
+	font-size:12px;
+} /* 小于 12px 的中文很难阅读，让 small 正常化 */
+/** 重置列表元素 **/
+ul, ol ,li,dl,dh{
+	list-style:none;
+}
+/** 重置文本格式元素 **/
+a {
+	color:#bf2c2a;
+	text-decoration:none;
+}
+a:hover {
+	
+	text-decoration:none;
+}
+sup {
+	vertical-align:text-top;
+} /* 重置，减少对行高的影响 */
+sub {
+	vertical-align:text-bottom;
+}
+a:hover,a:active, input, :focus { outline:none;}
+/** 重置表单元素 **/
+legend {
+	color:#000;
+} /* for ie6 */
+fieldset, img {
+	border:0;-ms-interpolation-mode:bicubic;
+} /* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea {
+	font-size:100%;
+} /* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+
+/** 重置表格元素 **/
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+	word-break:break-all;
+}
+/* 重置 HTML5 元素 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	display:block;
+	margin:0;
+	padding:0;
+}
+mark {background:#ff0;}
+/* 遮罩层。 */
+.mask {background-color:#000;opacity:0.3;filter:alpha(opacity=30);}
+/*改变文字选中默认背景颜色*/
+::selection { background:#8DB040; color:#fff; }
+::-moz-selection { background:#8DB040; color:#fff; }
+::-webkit-selection { background:#8DB040; color:#fff; }
+
+/* 隐藏 */
+.hidden {display:none;}
+.invisible {visibility:hidden;}
+/* 清除浮动 */
+.clear:after {
+	content:'\20';
+	display:block;
+	height:0;
+	clear:both;
+}
+.clear {	*zoom:1;}
+/*行块*/
+.inlineBlock{
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+}
+/*重置盒子模型模式*/
+*{ -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; font-family:'Arial','\5FAE\8F6F\96C5\9ED1';}
+/*设置按钮得到光标属性显示为手型*/
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {cursor:pointer;-webkit-appearance:button; *overflow:visible}
+/*重置系统选择按钮*/
+input[type="checkbox"], input[type="radio"] { box-sizing:border-box; padding:0;}
+/*同一搜索按钮UI*/
+input[type="search"] { -webkit-appearance:textfield;}
+input[type="search"]::-webkit-search-decoration {-webkit-appearance:none}
+/*重置火狐浏览器中按钮的文字垂直对齐问题*/
+button::-moz-focus-inner, input::-moz-focus-inner { border:0; padding:0;}
+.bkw { word-break:break-all; word-wrap:break-word;overflow:hidden;}
+.ellip { text-overflow:ellipsis; overflow:hidden; white-space:nowrap;}
+
+
+::-webkit-scrollbar {  
+  width:3px;  
+  height:3px;
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  background:#2b2b2b;
+    display: none;
+} 
+  
+::-webkit-scrollbar-track,  
+::-webkit-scrollbar-thumb {  
+  border-radius:999px;  
+  border:3px solid transparent;  
+}  
+  
+::-webkit-scrollbar-track {  
+  box-shadow:1px 1px 5px rgba(0,0,0,0.5) inset; display:none;
+}  
+  
+::-webkit-scrollbar-thumb {  
+  min-height:20px;  
+  background-clip:content-box;  
+  box-shadow:0 0 0 5px rgba(0,0,0,.2) inset;  
+}  
+  
+::-webkit-scrollbar-corner {  
+  background:transparent;  
+}
+
+
+/*--------------------  以上为各个项目公用BASE内容，下面区域为某个项目公用样式 ------------*/
+/**
+*@说明：齐鲁证券-港股通
+*/
+div, ul, li, dl, dt, dd, p, span, em, i, a,
+header, section, footer{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);/* 清除手机中点击出现的高亮边框 */
+	-webkit-text-size-adjust:none;/* 清除默认字体大小 */
+}
+html,body{height:100%;}
+body{background:#2f2f2f;}
+.headBox{position:absolute; top:0; right:0; left:0; z-index:0;}
+.mainBox{position:absolute; top:0; right:0; bottom:0; left:0; z-index:0; overflow:auto; -webkit-overflow-scrolling:touch;}
+.footBox{position:absolute; right:0; bottom:0; left:0; z-index:0;}
+
+.h15{height:15px;}
+
+/* arrow */
+.arrow-1{width:14px; height:24px; margin:-12px 0 0; background:url(../../img/index/arrow-1.png) no-repeat center; background-size:14px 24px; position:absolute; top:50%; right:10px;}
+/* arrow end */
+
+/* 弹出-请求加载 */
+.tc-loading{position:absolute; top:0; right:0; bottom:0; left:0; z-index:995;}
+.tc-loading .loading-bg{background:#000; opacity:.4; position:absolute; top:0; right:0; bottom:0; left:0; z-index:996;}
+.tc-loading .loading-img{width:100%; height:50px; margin:-25px 0 0; text-align:center; position:absolute; top:50%; left:0; z-index:999;}
+.loading-img p{width:50px; padding:5px 0; background:#d7d7d7; border-radius:10px; display:inline-block;}
+.loading-img img{width:40px; height:40px; vertical-align:top;}
+/* 弹出-请求加载 end */
+
+/* 弹出-已无数据 */
+.tc-noInfo{text-align:center; position:absolute; right:0; bottom:10px; left:0;}
+.noInfo-main{width:70px; padding:10px 0; background:#000; border-radius:5px; font-size:12px; text-align:center; line-height:12px; color:#fff; display:inline-block;}
+/* 弹出-已无数据 end */
+
+/* 弹出-弹出插件popup.js */
+.tc-cue{position:absolute; top:0; right:0; bottom:0; left:0; z-index:995;}
+.tc-cue .cue-bg{background:#000; opacity:.4; position:absolute; top:0; right:0; bottom:0; left:0; z-index:996;}
+.tc-cue .cue-main{background:#d4d4d4; border-radius:5px; position:absolute; top:50%; right:15px; left:15px; z-index:999;}
+.cue-main .cue-title{padding:16px 0; border-bottom:1px solid #cfcfcf; font-size:18px; font-weight:normal; text-align:center; line-height:18px; color:#303030;}
+.cue-main .cue-cont{padding:5px 10px;}
+.cue-cont .cue-txet{padding:5px 0; font-size:14px; line-height:14px; color:#303030;}
+.cue-cont .cue-list{padding:4px 0 4px 110px; position:relative;}
+.cue-list .cue-name{width:90px; margin:-7px 0 0; font-size:14px; text-align:right; line-height:14px; position:absolute; top:50%; left:0;}
+.cue-list .cue-val{min-height:20px; font-size:14px; line-height:20px;}
+.cue-main .cue-btn{padding:0 5px 10px; text-align:center;}
+.cue-btn p{width:50%; padding:0 5px; display:inline-block;}
+.cue-btn p a{padding:8px 0; background:#ceb67c; border-radius:3px; font-size:14px; line-height:14px; color:#303030; display:block;}
+.cue-btn p a.cue-no{background:#e6e6e6;}
+/* 弹出-弹出插件popup.js end */
+
+.m-top15 {
+margin-top:15px;
+}
+.wapper{
+overflow: auto;
+height: 100%;
+}
+
+.prolit {
+    color:#ec2f1f !important;
+}
+.loss {
+   color:#3a8ec9 !important;
+}
+.hightline42 {
+line-height:42px;
+}

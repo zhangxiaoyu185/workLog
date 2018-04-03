@@ -1,0 +1,197 @@
+/* CSS Document */
+body{
+	margin:0px;
+	padding:0px;
+}
+.headerBox{
+	background:#ffffff;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:88px;
+	position:absolute;
+	overflow:hidden; 
+	/*padding:10% 0;*/
+	margin:0;
+}
+
+.headerBox .header-img{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	width:172px;
+	height:60px;
+	padding:0;
+	margin-top:14px;
+	margin-left:15%;
+}
+.headerBox .header-title{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	height:24px;
+	margin-top:29px;
+	padding:0;
+	top:0px;
+	position:absolute;
+	font-size:30px;
+	color:#353743;
+	font-style:italic;
+	line-height:30px;
+	font-family:"Microsoft YaHei";
+}
+.headerBox .header-text{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	height:14px;
+	margin-top:44px;
+	padding:0;
+	top:0px;
+	right:20%;
+	position:absolute;
+	color:#808080;
+	font-size:14px;
+	line-height:14px;
+}
+
+
+.contentBox{
+	background:#363948;
+	top:88px;
+	right:0px;
+	bottom:130px;
+	left:0px;
+	position:absolute;
+}
+/*.contentBox .img_bg{	
+	top:-8px; 
+	left:15%; 
+	position:absolute; 
+	width:560px; 
+	height:100%;  
+	display:block;
+	background: url(../../images/login/login_bg.png) no-repeat center; 
+	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+	-moz-background-size:100% 100%;  
+    background-size:560px 100%;
+}*/
+.contentBox .img-bg{	
+	top:0px; 
+	left:15%; 
+	position:absolute; 
+	width:560px; 
+	height:100%;  
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	background: url(../../images/login/login_bg1.png) no-repeat center; 
+	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+	-moz-background-size:560px 100%;  
+    background-size:560px 100%;
+}
+.contentBox .img-bg2{	
+	top:-8px; 
+	left:35%; 
+	position:absolute; 
+	width:16px; 
+	height:8px;  
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	background: url(../../images/login/login_bg2.png) no-repeat center; 
+}
+.contentBox .formBox{
+	right:20%;
+	top:20%;
+	/* height:296px;
+	width:368px; */
+	position:absolute;
+	background:#fff;
+	padding:25px;
+}
+
+.formBox .nav{
+	margin:0;
+	padding:0 5px;
+}
+
+.nav .nav-list{
+	padding:8px;
+}
+.nav-list .inputBox{
+	border:1px solid #cbcbcb;
+	padding:8px;
+	width:270px;
+	/* height:36px; */
+}
+.inputBox .img-name{
+	width:16px; 
+	height:20px;  
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	vertical-align: top;
+	background:url(../../images/login/login_name.png) no-repeat center; 
+}
+.inputBox .img-pass{
+	width:16px; 
+	height:20px;  
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	vertical-align: top;
+	background:url(../../images/login/login_password.png) no-repeat center; 	
+}
+.inputBox .input-text{
+	margin-left:10px;
+	width:200px;
+	height:20px;
+	border:0;
+	color:#cbcbcb;
+	font-size:12px;
+	line-height:20px;
+	vertical-align: top;
+}
+.nav-list .input-check{
+	vertical-align: middle;
+	width:14px;
+	height:14px;
+}
+.nav-list .span-text{
+	margin-left:5px;
+	vertical-align: middle;
+	font-size:14px;
+	line-height:14px;
+}
+.contentBox .formBox .form-text{
+	font-size:16px;
+	color:#36312b;
+	line-height:16px;
+}
+.contentBox .formBox .btn-submit{
+	text-align:center;
+	color:#fff8f8;
+	font-size:16px;
+	line-height:40px;
+	background:#f66665;
+	border:none;
+	width:270px;
+	-moz-border-radius: 3px;      /* Gecko browsers */
+   -webkit-border-radius: 3px;   /* Webkit browsers */
+   border-radius:3px;            /* W3C syntax */
+}
+
+.footerBox{
+	position:absolute;
+	bottom:0px;
+	left:0;
+	width:100%;
+	height:130px;
+	background:#fff;
+}
+.footerBox .footer-text{
+	font-size:12px;
+	color:#818181;
+	line-height:12px;
+	text-align:center;
+	bottom:50%;
+	left:50%;
+	margin-left:-108px;
+	margin-bottom:-6px;
+	position:absolute;
+	display:block;
+}

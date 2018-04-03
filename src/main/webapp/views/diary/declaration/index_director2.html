@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工作日志申报系统</title>
+<link type="text/css" rel="stylesheet" href="../css/common/base-min.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/index.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/index_director.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/dialog-box.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/datepicker/jquery-ui.css" media="all" />
+<script type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../js/declaration/numrel.js"></script>
+<script type="text/javascript" src="../js/declaration/index_director2.js"></script>
+<script type="text/javascript" src="../js/datepicker/jquery-ui-datepicker.js"></script>
+<script type="text/javascript" src="../js/declaration/dialog-box-director2.js"></script>
+</head>
+
+<body>
+    <div class="headerBox">
+        <!--<i class="i-top"><img src="../images/declaration/index_top.png"/></i>-->
+        <img src="../images/declaration/index_top.png"/>
+    </div>
+    <div class="contentBox">
+        <div class="leftBox">
+        
+    <!--<p class="showbtn"><a href="javascript:void(0);">显示遮罩层</a></p>-->
+    
+            <ul class="nav">
+                <li class="nav-li">
+                    <ul class="nav-top">
+                        <!-- <li class="nav-top-li">
+                            <p class="p-text" id="username"></p>
+                        </li>
+                        <li class="nav-top-li">
+                            <p class="p-text p-left" id="usercode"></p>
+                            <p class="p-text p-right" id="userjob"></p>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav projectSummary-btn">项目汇总</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav peopleSummary-btn">人员汇总</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav bug-btn">bug管理</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav showbtn modifyPwd-btn">修改密码</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav exit-btn">退出登录</button>
+                        </li> -->
+                     </ul><!--end <ul class="nav-top"> -->
+                    
+                </li>
+                
+                <li class="nav-li align-center" style="border:1px solid #ccc;">
+                	<div class="margin-b">------------按 年 月 查 询------------</div>
+                	<div>
+                	<input id="yearSearch" style="IME-MODE: disabled; WIDTH: 40px;" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="4" type="text" />
+                	&nbsp;年&nbsp;
+                	<input id="monthSearch" style="IME-MODE: disabled; WIDTH: 20px;" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="2" type="text" />
+                	&nbsp;月&nbsp;
+                	<button class="searchBtn yearMonth_search">查询</button>
+                	</div>
+                </li>
+                
+                <li class="nav-li">
+                	<p class="p-year nextYear" showtype="false"></p>
+                	<ul class="nav-middle nextMonth">
+                    	<!--<li class="nav-middle-li">
+                        	<p>12月</p>
+                        </li>-->
+                    </ul><!--end <ul class="nav-middle"> -->
+                </li>
+                
+                <li class="nav-li">
+                    <p class="p-year currentYear" showtype="true"></p>
+                    <ul class="nav-middle currentMonth">
+                        <!--<li class="nav-middle-li">
+                            <p>7月</p>
+                        </li>-->
+                    </ul><!--end <ul class="nav-middle"> -->
+                </li>
+                
+               <li class="nav-li">
+                    <p class="p-year lastYear" showtype="false"></p>
+                    <ul class="nav-middle lastMonth">
+                        <!--<li class="nav-middle-li">
+                            <p>12月</p>
+                        </li>-->
+                    </ul><!--end <ul class="nav-middle"> -->
+                </li>
+            </ul><!--end <ul class="nav"> -->
+        </div><!--end <div class="leftBox"> -->
+        
+        
+         <!--人员汇总-->
+        <div class="rightBox peopleSummary">
+            <div class="rightTop2 greyBox">
+                <p>首页 > 人员汇总</p>
+            </div>
+            
+            <div class="rightContent2">
+                    <ul class="horizontal-nav margin-tb">
+                        <!-- <li class="horizontal-nav-li"><span>赵俊杰</span></li>
+                        <li class="horizontal-nav-li"><span>龚栋亮</span></li>
+                        <li class="horizontal-nav-li"><span>钟露</span></li>
+                        <li class="horizontal-nav-li"><span>柳刚强</span></li>
+                        <li class="horizontal-nav-li"><span>陈俊</span></li>
+                        <li class="horizontal-nav-li showbtn addmanager-btn"><span class="img-addpro"></span><span>新增</span></li> -->
+                    </ul>
+                
+                <div class="memberMangement">
+                    <div class="margin-tb managerBox">
+                        <!-- <table class="tb">
+                            <thead class="tb-head align-left">
+                                <tr>
+                                  <th colspan="8"> 赵俊杰（项目经理）</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tb-body">
+                                <tr> 
+                                    <td>姓名</td>
+                                    <td>项目</td>
+                                    <td>状态</td>
+                                    <td>参与人员</td>
+                                    <td>总用时</td>
+                                    <td>开始时间</td>
+                                    <td>结束时间</td>
+                                    <td>操作</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="5">赵俊杰</td>
+                                    <td>中信炒股，开户客户端协助测试；</td>
+                                    <td><span class="p-red">已完成</span></td>
+                                    <td>
+                                        <span class="p-edit">王路子</span>
+                                        <span class="p-edit">张**</span>
+                                        <span class="p-edit">潘**</span>
+                                    </td>
+                                    
+                                    <td>5小时</td>
+                                    <td>07-05 19:07</td>
+                                    <td>07-05 19:07</td>
+                                    <td>
+                                        <button class="btn-blue showbtn remark-btn">备注</button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>中信炒股，开户客户端协助测试；</td>
+                                    <td><span class="p-red">已完成</span></td>
+                                    <td>
+                                        <span class="p-edit">王路子</span>
+                                        <span class="p-edit">张**</span>
+                                        <span class="p-edit">潘**</span>
+                                    </td>
+                                    
+                                    <td>5小时</td>
+                                    <td>07-05 19:07</td>
+                                    <td>07-05 19:07</td>
+                                    <td>
+                                        <button class="btn-blue showbtn remark-btn">备注</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>中信炒股，开户客户端协助测试；</td>
+                                    <td><span class="p-red">已完成</span></td>
+                                    <td>
+                                        <span class="p-edit">王路子</span>
+                                        <span class="p-edit">张**</span>
+                                        <span class="p-edit">潘**</span>
+                                    </td>
+                                    
+                                    <td>5小时</td>
+                                    <td>07-05 19:07</td>
+                                    <td>07-05 19:07</td>
+                                    <td>
+                                        <button class="btn-blue showbtn remark-btn">备注</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>中信炒股，开户客户端协助测试；</td>
+                                    <td><span class="p-purple">未完成</span></td>
+                                    <td>
+                                        <span class="p-edit">王路子</span>
+                                        <span class="p-edit">张**</span>
+                                        <span class="p-edit">潘**</span>
+                                    </td>
+                                    
+                                    <td>5小时</td>
+                                    <td>07-05 19:07</td>
+                                    <td>07-05 19:07</td>
+                                    <td>
+                                        <button class="btn-blue showbtn remark-btn">备注</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>中信炒股，开户客户端协助测试；</td>
+                                    <td><span class="p-purple">未完成</span></td>
+                                    <td>
+                                        <span class="p-edit">王路子</span>
+                                        <span class="p-edit">张**</span>
+                                        <span class="p-edit">潘**</span>
+                                    </td>
+                                    
+                                    <td>5小时</td>
+                                    <td>07-05 19:07</td>
+                                    <td>07-05 19:07</td>
+                                    <td>
+                                        <button class="btn-blue showbtn remark-btn">备注</button>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                            <tfoot class="tb-foot">
+                            </tfoot>
+                        </table> -->
+                    </div>
+                    <div id="gotop" class="reportBox margin-tb">
+                        <!-- <p class="p-blue font-big">王路子</p>
+                        <div class=" margin-tb">
+                            <p class="p-blue">2015-07-01</p>
+                            <div class="tableBox clear">
+                                <table class="tb-half float-left">
+                                    <thead class="tb-head">
+                                        <tr>
+                                          <th colspan="6">今日已完成</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tb-body">
+                                        <tr>
+                                            <td width="8%">序号</td>
+                                            <td width="40%">内容</td>
+                                            <td width="12%">姓名</td>
+                                            <td width="10%">用时</td>
+                                            <td width="14%">上传日期</td>
+                                            <td width="16%">操作</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>中信炒股，开户客户端协助测试；</td>
+                                            <td><span class="p-edit">王路子</span></td>
+                                            <td>0.5小时</td>
+                                            <td>07-02 19:07</td>
+                                            <td><button class="btn-blue showbtn remark-btn">回复</button></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>中信客户端内测版本测试；</td>
+                                            <td><span class="p-edit">王路子</span></td>
+                                            <td>7小时</td>
+                                            <td>07-02 19:07</td>
+                                            <td><button class="btn-blue showbtn remark-btn">回复</button></td>
+                                            </tr>
+                                        
+                                    </tbody>
+                                    
+                                </table>
+                                <table class="tb-half float-left">
+                                    <thead class="tb-head">
+                                        <tr>
+                                          <th colspan="6">今日未完成</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tb-body">
+                                        <tr>
+                                            <td width="8%">序号</td>
+                                            <td width="40%">内容</td>
+                                            <td width="12%">姓名</td>
+                                            <td width="10%">用时</td>
+                                            <td width="14%">上传日期</td>
+                                            <td width="16%">操作</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>1</td>
+                                            <td>中信炒股，开户客户端协助测试；</td>
+                                            <td><span class="p-edit">王路子</span></td>
+                                            <td>7小时</td>
+                                            <td>07-02 19:07</td>
+                                            <td><button class="btn-blue showbtn remark-btn">回复</button></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                    
+                                </table>
+                            </div>
+                           
+                        </div> -->
+                    </div><!--end <div class="reportBox">-->
+                    
+                </div><!--end  <div class="proMangement">-->
+                    
+            </div>   <!--end  <div class="rightContent">-->
+            
+        </div><!--end  <div class="rightBox logReport">-->
+        
+    </div>
+    <div class="showarrow"></div>
+    <div class="showremark">我是一个备注层</div>  
+    <!--以下为遮罩层-->
+    <div class="dialog-bg"></div>
+    <div class="dialog-box" style="display:none">
+        <!--备注模块-->
+        <div class="remark-box">
+            <div class="dialog-title">
+                <p>备注</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <p class="p-dialog-left">备注：</p>
+                    <ul class="dialog-list">
+                        
+                        <li class="dialog-list-li">
+                                <textarea class="dialog-textarea remark-textarea">请输入备注内容</textarea>
+                        </li>
+                    </ul>
+                    <!--<p class="dialog-btn-add addAssignment"><span class="img-add"></span><span>再增加一条</span></p>-->
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+            
+        </div><!--end <div class="remark-box">-->
+        
+         <!--回复模块-->
+        <div class="reply-box">
+            <div class="dialog-title">
+                <p>回复</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <p class="p-dialog-left">回复：</p>
+                    <ul class="dialog-list">
+                        
+                        <li class="dialog-list-li">
+                                <textarea class="dialog-textarea remark-textarea">请输入回复内容</textarea>
+                        </li>
+                    </ul>
+                    <!--<p class="dialog-btn-add addAssignment"><span class="img-add"></span><span>再增加一条</span></p>-->
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+            
+        </div><!--end <div class="reply-box">-->
+
+    </div>
+</body>
+</html>

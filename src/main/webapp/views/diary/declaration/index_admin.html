@@ -1,0 +1,675 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工作日志申报系统</title>
+<link type="text/css" rel="stylesheet" href="../css/common/base-min.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/index.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/index_admin.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/dialog-box.css" media="all" />
+<script type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="../ckfinder/ckfinder.js"></script>
+<script type="text/javascript" src="../js/declaration/numrel.js"></script>
+<script type="text/javascript" src="../js/declaration/index_admin.js"></script>
+<script type="text/javascript" src="../js/declaration/dialog-box-admin.js"></script>
+</head>
+
+<body>
+    <div class="headerBox">
+        <!--<i class="i-top"><img src="../images/declaration/index_top.png"/></i>-->
+        <img src="../images/declaration/index_top.png"/>
+    </div>
+    <div class="contentBox">
+        <div class="leftBox">
+    
+            <ul class="nav">
+                <li class="nav-li">
+                    <ul class="nav-top">
+                        <li class="nav-top-li">
+                            <p class="p-text" id="username"></p>
+                        </li>
+                        <li class="nav-top-li">
+                            <p class="p-text p-left" id="usercode"></p>
+                            <p class="p-text p-right" id="userjob"></p>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav role-btn">角色管理</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav group-btn">组别管理</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav project-btn">项目管理</button>
+                        </li>
+                        <!-- <li class="nav-top-li">
+                            <button class="btn-nav pm-btn">项目经理</button>
+                        </li> -->
+                        <li class="nav-top-li">
+                            <button class="btn-nav staff-btn">员工列表</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav meau-btn">权限管理</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav showbtn modifyPwd-btn">修改密码</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav exit-btn">退出登录</button>
+                        </li>
+                     </ul><!--end <ul class="nav-top"> -->
+                    
+                </li>
+            </ul><!--end <ul class="nav"> -->
+        </div><!--end <div class="leftBox"> -->
+        
+        <div class="rightBox">
+        	<!-- <div> -->
+	            <div class="rightTop2 greyBox">
+	                <!-- <span>首页 > 组别管理</span>
+	                <input type="button" class="addBtn addgroup" value="新增"></input> -->
+	            </div>
+	            
+	            <div class="rightContent2">
+	                <div class="manageBox margin-tb">
+                        <!-- <table class="tb">
+                            <tbody class="tb-body">
+                                <tr class="tb-head">
+                                    <td width="25%">ID</td> 
+                                    <td width="25%">组别名</td>
+                                    <td width="25%">主管</td>
+                                    <td width="25%">操作</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>项目一组</td>
+                                    <td>***</td>
+                                    <td>
+                                        <span class="p-edit showbtn modifyGroup-btn">修改</span>
+                                        <span class="p-edit delGroup-btn">删除</span>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table> -->
+                    </div><!--end <div class="manageBox">-->  
+	            </div>   <!--end  <div class="rightContent">-->
+	   		<!-- </div> -->
+            
+        </div><!--end  <div class="rightBox">-->
+        
+    </div>
+   	<div class="showarrow"></div>
+   	<div class="showremark">我是一个备注层</div> 
+    <!--以下为遮罩层-->
+    <div class="dialog-bg"></div>
+    <div class="dialog-box" style="display:none">
+    <!-- 添加/修改角色 -->
+        <div class="role-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p"></p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list">
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">*</font>角&nbsp;色&nbsp;名</span>
+                            <input class="dialog-input roleName" data-id=""  type="text" value="请输入角色名"/>   
+                        </li>
+                        <li class="dialog-list-li">
+                           <span class="align-left align-top inline-block85"><font color="red">*</font>权&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限</span>
+                           <div class="select-box text-meau">
+                               <input class="select-item" data-ids="" data-values="" type="text" value="请选择权限" readonly="readonly"/>
+                               <ul class="select-ul align-left">
+                                   <!-- <li>开户组</li>
+                                   <li>服务器组</li>
+                                   <li>测试组</li> -->
+                               </ul>
+                           </div>
+                       </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85">&nbsp;备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</span>
+                            <textarea class="dialog-textarea remark-textarea">请输入备注内容</textarea>   
+                        </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="role-box">-->
+    <!-- 角色 -->
+    <!-- 组别 -->
+        <div class="group-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p"></p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>组别名称</span>
+                            <input class="dialog-input groupName width200" type="text" value="请输入组别名称"/>   
+                        </li>
+                        <li class="dialog-list-li  align-center">
+                            <span class="margin-lr">项目经理</span>
+                            <div class="select-box text-pm">
+                                <input class="select-item" data-id="" type="text" value="请选择项目经理" readonly="readonly"/>
+                                <ul class="select-ul align-left">
+                                    <!-- <li>开户组</li>
+                                    <li>服务器组</li>
+                                    <li>测试组</li> -->
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="group-box">-->
+	<!-- 组别 -->
+	<!-- 组别下人员 -->
+        <div class="groupMember-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">成员管理</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr">组别名称</span> 
+                            <span class="inline-block groupName width200">地对地导弹</span>
+                        </li>
+                        <li class="dialog-list-li  align-center">
+                            <span class="margin-lr">成员</span>
+                            <div class="select-box text-groupMember">
+                                <input class="select-item" data-ids="" type="text" value="" readonly="readonly"/>
+                                <ul class="select-ul align-left">
+                                    <!-- <li>开户组</li>
+                                    <li>服务器组</li>
+                                    <li>测试组</li> -->
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="groupMember-box">-->
+	<!-- 组别下人员 -->
+	<!-- 项目 -->
+        <div class="project-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">修改项目</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                         <li class="dialog-list-li  align-center">
+                            <span class="margin-lr"><font color="red">*</font>项目经理</span>
+                            <div class="select-box text-pm">
+                                <input class="select-item" data-id="" type="text" value="请选择项目经理" readonly="readonly"/>
+                                <ul class="select-ul align-left">
+                                    <!-- <li>开户组</li>
+                                    <li>服务器组</li>
+                                    <li>测试组</li> -->
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red">*</font>状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态</span>
+                           <span class="select-box">
+                                <input type="radio" name="projectStatus" value="0" />未完成
+            					<input type="radio" name="projectStatus" value="1" checked="checked" />完成
+                           </span>
+                       </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="project-box">-->
+	<!-- 项目-->
+	<!-- 添加项目经理 -->
+        <!-- <div class="pm-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">添加项目经理</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                    	<li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span>
+                            <input class="dialog-input code width200" type="text" value="请输入工号"/>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                            <input class="dialog-input name width200" type="text" value="请输入姓名"/>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</span>
+                            <input class="dialog-input pwd width200" type="text" value="请输入密码" onpaste="return false" onfocus="this.style.imeMode='disabled'"/>   
+                        </li>
+                       <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red">*</font>所属组别</span>
+                           <div class="select-box text-groups">
+                               <input class="select-item" data-id="" type="text" value="请选择管理组别" readonly="readonly"/>
+                               <ul class="select-ul align-left">
+                                   <li>开户组</li>
+                                   <li>服务器组</li>
+                                   <li>测试组</li>
+                               </ul>
+                           </div>
+                       </li>
+                    </ul>
+                </div>end <div class="dialog-module-content">
+                <button class="dialog-btn">提交</button>
+            </div>end <div class="dialog-content">
+        </div> --><!--end <div class="pm-box">-->
+	<!-- 添加项目经理-->
+	<!-- 修改项目经理 -->
+        <!-- <div class="modifyPM-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">修改项目经理信息</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                    	<li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span>
+                            <span class="inline-block code width200"></span>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                            <input class="dialog-input name width200" value="" type="text"/>   
+                        </li>
+                       <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red">*</font>管理组别</span>
+                           <div class="select-box text-groups">
+                               <input class="select-item" data-ids="" type="text" value="" readonly="readonly"/>
+                               <ul class="select-ul align-left">
+                                   <li>开户组</li>
+                                   <li>服务器组</li>
+                                   <li>测试组</li>
+                               </ul>
+                           </div>
+                       </li>
+                    </ul>
+                </div>end <div class="dialog-module-content">
+                <button class="dialog-btn">提交</button>
+            </div>end <div class="dialog-content">
+        </div> --><!--end <div class="modifyPM-box">-->
+	<!-- 修改项目经理-->
+	<!-- 添加人员 -->
+        <div class="staff-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">添加员工</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                    	<li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span>
+                            <input class="dialog-input code width200" type="text" value="请输入工号"/>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                            <input class="dialog-input name width200" type="text" value="请输入姓名"/>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</span>
+                            <input class="dialog-input pwd width200" type="text" value="请输入密码" onpaste="return false" onfocus="this.style.imeMode='disabled'"/>   
+                        </li>
+                        <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red"></font>&nbsp;邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</span>
+                           <input class="dialog-input email width200" type="text" value=""/> 
+                           <!-- <div class="select-box text-role">
+                               <input class="select-item" data-id="" type="text" value="请选择角色" readonly="readonly"/>
+                               <ul class="select-ul align-left">
+                                   <li>开户组</li>
+                                   <li>服务器组</li>
+                                   <li>测试组</li>
+                               </ul>
+                           </div> -->
+                       </li>
+                       <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red"></font>&nbsp;联系方式</span>
+                           <input class="dialog-input mobile width200" type="text" value=""/>
+                           <!-- <div class="select-box text-group">
+                               <input class="select-item" data-id="" type="text" value="请选择所属组别" readonly="readonly"/>
+                               <ul class="select-ul align-left">
+                                   <li>开户组</li>
+                                   <li>服务器组</li>
+                                   <li>测试组</li>
+                               </ul>
+                           </div> -->
+                       </li>
+                       <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red">*</font>角&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;色</span>
+                           <div class="select-box text-role">
+                               <input class="select-item" data-ids="" data-values="" type="text" value="请选择角色" readonly="readonly"/>
+                               <ul class="select-ul align-left">
+                                   <!-- <li>开户组</li>
+                                   <li>服务器组</li>
+                                   <li>测试组</li> -->
+                               </ul>
+                           </div>
+                       </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="staff-box">-->
+	<!-- 添加人员-->
+	<!-- 修改员工 -->
+        <div class="staffM-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">修改员工信息</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                    	<li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span>
+                            <span class="inline-block code width200"></span>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                            <input class="dialog-input name width200" value="" type="text"/>   
+                        </li>
+                        <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red"></font>&nbsp;邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</span>
+                           <input class="dialog-input email width200" type="text" value=""/> 
+                           <!-- <div class="select-box text-role">
+                               <input class="select-item" data-id="" type="text" value="请选择角色" readonly="readonly"/>
+                               <ul class="select-ul align-left">
+                                   <li>开户组</li>
+                                   <li>服务器组</li>
+                                   <li>测试组</li>
+                               </ul>
+                           </div> -->
+                       </li>
+                       <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red"></font>&nbsp;联系方式</span>
+                           <input class="dialog-input mobile width200" type="text" value=""/>
+                           <!-- <div class="select-box text-group">
+                               <input class="select-item" data-id="" type="text" value="请选择所属组别" readonly="readonly"/>
+                               <ul class="select-ul align-left">
+                                   <li>开户组</li>
+                                   <li>服务器组</li>
+                                   <li>测试组</li>
+                               </ul>
+                           </div> -->
+                       </li>
+                       <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red">*</font>状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态</span>
+                           <span class="select-box">
+                                <input type="radio" name="userStatus" value="0" />暂用
+            					<input type="radio" name="userStatus" value="1" checked="checked" />启用
+                           </span>
+                       </li>
+                       <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red">*</font>角&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;色</span>
+                           <div class="select-box text-role">
+                               <input class="select-item" data-ids="" data-values="" type="text" value="请选择角色" readonly="readonly"/>
+                               <ul class="select-ul align-left">
+                                   <!-- <li>开户组</li>
+                                   <li>服务器组</li>
+                                   <li>测试组</li> -->
+                               </ul>
+                           </div>
+                       </li>
+                       <!-- <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red">*</font>所属组别</span>
+                           <div class="select-box text-group">
+                               <input class="select-item" data-id="" type="text" value="" readonly="readonly"/>
+                               <ul class="select-ul align-left">
+                                   <li>开户组</li>
+                                   <li>服务器组</li>
+                                   <li>测试组</li>
+                               </ul>
+                           </div>
+                       </li> -->
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="staffM-box">-->
+	<!-- 修改员工-->
+	<!-- 重置密码 -->
+        <div class="pwd-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">重置密码</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                    	<li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">&nbsp;&nbsp;</font>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span>
+                            <span class="inline-block code width200"></span>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">&nbsp;&nbsp;</font>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                            <span class="inline-block name width200"></span>    
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>新&nbsp;&nbsp;密&nbsp;&nbsp;码</span>
+                            <input style="ime-mode: disabled;" class="dialog-input newpwd width200" type="password" value="请输入新密码" onpaste="return false" onfocus="this.style.imeMode='disabled'"/>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>确认密码</span>
+                            <input class="dialog-input repwd width200" type="password" value="请输入确认密码" onpaste="return false" onfocus="this.style.imeMode='disabled'"/>   
+                        </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="pwd-box">-->
+	<!-- 重置密码-->
+	<!-- 修改密码 -->
+        <div class="modifyPwd-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">修改密码</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                    	<li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">&nbsp;&nbsp;</font>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span>
+                            <span class="inline-block code width200"></span>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">&nbsp;&nbsp;</font>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                            <span class="inline-block name width200"></span>    
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>旧&nbsp;&nbsp;密&nbsp;&nbsp;码</span>
+                            <input style="ime-mode: disabled;" class="dialog-input oldpwd width200" type="password" value="请输入旧密码" onpaste="return false" onfocus="this.style.imeMode='disabled'"/>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>新&nbsp;&nbsp;密&nbsp;&nbsp;码</span>
+                            <input style="ime-mode: disabled;" class="dialog-input newpwd width200" type="password" value="请输入新密码" onpaste="return false" onfocus="this.style.imeMode='disabled'"/>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>确认密码</span>
+                            <input style="ime-mode: disabled;" class="dialog-input repwd width200" type="password" value="请输入确认密码" onpaste="return false" onfocus="this.style.imeMode='disabled'"/>   
+                        </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="modifyPwd-box">-->
+	<!-- 修改密码-->
+	<!-- 添加权限 -->
+        <div class="meau-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">添加权限</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+            	<div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>权限名称</span>
+                            <input class="dialog-input meauname width200" value="请输入权限名称" type="text"/>
+                        </li>
+                        <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red">*</font>资源地址</span>
+                           <input class="dialog-input meauurl width200" value="请输入资源地址" type="text"/>
+                       </li>
+                       <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red">*</font>功能状态</span>
+                           <span class="select-box">
+                                <input type="radio" name="menuStatus" value="0" />暂用
+            					<input type="radio" name="menuStatus" value="1" checked="checked" />启用
+                           </span>
+                       </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="bug-box">-->
+	<!-- 添加权限-->
+	<!-- 修改权限 -->
+        <div class="modifyMeau-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">修改权限</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list font-big">
+                    	<li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>标&nbsp;&nbsp;识&nbsp;&nbsp;ID</span>
+                            <span class="inline-block meaucode width200"></span>   
+                        </li>
+                        <li class="dialog-list-li align-center">
+                            <span class="margin-lr"><font color="red">*</font>权限名称</span>
+                            <input class="dialog-input meauname width200" value="" type="text"/>   
+                        </li>
+                        <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red">*</font>资源地址</span>
+                           <input class="dialog-input meauurl width200" value="" type="text"/>
+                       </li>
+                       <li class="dialog-list-li  align-center">
+                           <span class="margin-lr"><font color="red">*</font>功能状态</span>
+                           <span class="select-box">
+                                <input type="radio" name="menuStatus" value="0" />暂用
+            					<input type="radio" name="menuStatus" value="1" checked="checked" />启用
+                           </span>
+                       </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="modifyMeau-box">-->
+	<!-- 修改权限-->
+	<!-- 权限详情 -->
+        <!-- <div class="detailMeau-box">
+            <div class="dialog-title">
+                <p class="dialog-title-p">权限详情</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-module-content  align-center">
+                    <ul class="dialog-list font-big align-left">
+                    	<li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>级别：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugLevel">1</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>严重程度：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugSeverity">1</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>标题：</span>
+                            <span class="align-left align-middle inline-block width582 bugTitle">我是标题君</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>所属项目：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugPro">我是项目君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>所属模块：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugModel">我是模块君</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>影响版本：</span>
+                            <span class="align-left align-middle inline-block width200 bugAffectVersion">我是版本君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>操作系统：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugSystemType">我是系统君</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>浏览器：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugBrowser">我是浏览器君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>BUG类型：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugType">我是BUG类型君</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>状态：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugStatus">我是状态君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>指派给：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugAssigned">我是被指派君</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>创建者：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugCreator">我是创建君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>创建时间：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugCreatTime">2015-11-16 10:36:30</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>解决人：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugSolved">我是解决君</span>
+                            <span class="inline-block85"></span>
+                            <span class="align-left align-middle inline-block85"><font color="red">&nbsp;</font>解决时间：</span>
+                            <span class="align-left align-middle inline-block width200 text-bugSolvedTime">2015-11-16 10:42:30</span>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">*</font>内容：</span>
+                            <div class="align-left align-top inline-block width582 bugContents">
+                            	<p>I威武哦很舒育与司法毒<img alt="" src="/workLog/userfiles/images/Tulips.jpg" style="float:right; height:75px; width:100px" /></p>
+								<p>年福建省肯定和覅收到了福禄寿你叫谁看到了。</p>
+						    </div>
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">&nbsp;</font>备注：</span>
+                            <div class="align-left align-top inline-block width582 bugRemarks">
+                            1、我是一个备注，备注，备注，备注，备注，备注，备注，备注，备注<br />
+                            2、只是一个备注<br />
+                            3、备……备……注<br />
+                            </div>   
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">&nbsp;</font>指派记录：</span>   
+                        	<div class="align-left align-top inline-block width582 bugAssignedRecord">
+                            1、2015-11-13 10:42:30,由张三指派给李四<br />
+                            2、2015-11-16 10:42:30,由李四指派给王五<br />
+                            </div>   
+                        </li>
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">&nbsp;</font>状态记录：</span>
+                            <div class="align-left align-top inline-block width582 bugStatusRecord">
+                            1、2015-11-13 10:42:30,由张三把UnSolved状态给成Solving<br />
+                            2、2015-11-16 11:42:30,由王五把Solving状态给成ByDesign<br />
+                            </div>   
+                        </li>
+                    </ul>
+                </div> --><!--end <div class="dialog-module-content">-->
+                <!-- <button class="dialog-btn">提交</button> -->
+            </div><!--end <div class="dialog-content">-->
+        </div><!--end <div class="detailMeau-box">-->
+    </div>
+</body>
+</html>

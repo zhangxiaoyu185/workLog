@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工作日志申报系统</title>
+<link type="text/css" rel="stylesheet" href="../css/common/base-min.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/index.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/index_pm.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/declaration/dialog-box.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/datepicker/jquery-ui.css" media="all" />
+<script type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../js/declaration/numrel.js"></script>
+<script type="text/javascript" src="../js/declaration/index_pm2.js"></script>
+<script type="text/javascript" src="../js/declaration/numrel.js"></script>
+<script type="text/javascript" src="../js/datepicker/jquery-ui-datepicker.js"></script>
+<script type="text/javascript" src="../js/declaration/dialog-box-pm2.js"></script>
+</head>
+
+<body>
+    <div class="headerBox">
+    	<!--<i class="i-top"><img src="../images/declaration/index_top.png"/></i>-->
+        <img src="../images/declaration/index_top.png"/>
+    </div>
+    <div class="contentBox">
+    	<div class="leftBox">
+        
+    <!--<p class="showbtn"><a href="javascript:void(0);">显示遮罩层</a></p>-->
+    
+            <ul class="nav">
+                <li class="nav-li">
+                	<ul class="nav-top">
+                        <!-- <li class="nav-top-li">
+                        	<p class="p-text" id="username">你好，***</p>
+                        </li>
+                        <li class="nav-top-li">
+                        	<p class="p-text p-left" id="usercode">工号：***</p>
+                 			<p class="p-text p-right" id="userjob">岗位：项目经理</p>
+                        </li>
+                        
+                        <li class="nav-top-li">
+                        	<button class="btn-nav showbtn logReport-btn">上报工作日志</button>
+                        </li>
+                        
+						<li class="nav-top-li">
+                            <button class="btn-nav schedule-btn">项目进度管理</button>
+                        </li>
+						<li class="nav-top-li">
+                            <button class="btn-nav people-btn">人员管理</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav showbtn modifyPwd-btn">修改密码</button>
+                        </li>
+                        <li class="nav-top-li">
+                            <button class="btn-nav exit-btn">退出登录</button>
+                        </li> -->
+                     </ul><!--end <ul class="nav-top"> -->
+                    
+                </li>
+                
+                <li class="nav-li align-center" style="border:1px solid #ccc;">
+                	<div class="margin-b">------------按 年 月 查 询------------</div>
+                	<div>
+                	<input id="yearSearch" style="IME-MODE: disabled; WIDTH: 40px;" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="4" type="text" />
+                	&nbsp;年&nbsp;
+                	<input id="monthSearch" style="IME-MODE: disabled; WIDTH: 20px;" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="2" type="text" />
+                	&nbsp;月&nbsp;
+                	<button class="searchBtn yearMonth_search">查询</button>
+                	</div>
+                </li>
+                
+                <li class="nav-li">
+                	<p class="p-year nextYear" showtype="false"></p>
+                	<ul class="nav-middle nextMonth">
+                    	<!--<li class="nav-middle-li">
+                        	<p>12月</p>
+                        </li>-->
+                    </ul><!--end <ul class="nav-middle"> -->
+                </li>
+                
+                <li class="nav-li">
+                	<p class="p-year currentYear" showtype="true"></p>
+                	<ul class="nav-middle currentMonth">
+                    	<!--<li class="nav-middle-li">
+                        	<p>7月</p>
+                        </li>-->
+                    </ul><!--end <ul class="nav-middle"> -->
+                </li>
+                
+               <li class="nav-li">
+                	<p class="p-year lastYear" showtype="false"></p>
+                	<ul class="nav-middle lastMonth">
+                    	<!--<li class="nav-middle-li">
+                        	<p>12月</p>
+                        </li>-->
+                    </ul><!--end <ul class="nav-middle"> -->
+                </li>
+            </ul><!--end <ul class="nav"> -->
+        </div><!--end <div class="leftBox"> -->
+        
+         <!--人员管理-->
+        <div class="rightBox people">
+        	<div class="rightTop2 greyBox">
+                <p>首页 > 人员管理<p>
+        	</div>
+            
+            <div class="rightContent2">
+            	<div class="people-group">
+                    <div class="select-box text-group">
+                        <input class="select-item" type="text" data-id="" value="请选择组别" readonly="readonly">
+                        <ul class="select-ul">
+                        <!-- 
+                            <li data-group>开户组</li>
+                            <li>服务器组</li>
+                            <li>测试组</li>
+                         -->
+                        </ul>
+                    </div>
+                    <ul class="horizontal-nav margin-tb">
+                    	<!-- 
+                        <li class="horizontal-nav-li spn_user"><span>王路子</span></li>
+                        <li class="horizontal-nav-li spn_user"><span>张小*</span></li>
+                        <li class="horizontal-nav-li spn_user"><span>洪彬新</span></li>
+                        <li class="horizontal-nav-li spn_user"><span>张**</span></li>
+                        <li class="horizontal-nav-li spn_user"><span>李**</span></li>
+                        <li class="horizontal-nav-li showbtn addpeople-btn"><span class="img-addpro"></span><span>新增</span></li>
+                         -->
+                    </ul>
+                </div>
+                <div class="peopleMangement">
+               		<div class="margin-tb clear">
+                        <span class="p-blue font-big"></span>
+                        <button class="assign-btn float-right showbtn monthAssignment-btn">分配本月任务</button>
+                    </div>
+                    <div class="monthBox monthbox-pd margin-tb month_box">
+                        <div class="noteLeft">
+                            <i class="img-note"><img src="../images/declaration/note_edit.png" /></i>
+                            <p class="p-note">本月工作任务：</p>
+                        </div>
+                        
+                        <ul class="mList" id="mList_1">
+                        <!-- 
+                            <li>
+                                <p>
+                                    <span class="p-normal">
+                                        <span>1、</span>
+                                        <span class="month-start">2015.09.01</span>
+                                        <span> - </span>
+                                        <span class="month-end">2015.09.15</span>
+                                        <span>&nbsp;</span>
+                                        <span class="month-proname">中信证券</span>
+                                        <span>，</span>
+                                        <span class="month-content">这是一个测试1</span>
+                                    </span>
+                                    <span class="float-right p-edit del-btn">删除</span>
+                                    <span class="float-right p-edit showbtn modify-btn monthAssignment">修改</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span class="p-normal">
+                                        <span>2、</span>
+                                        <span class="month-start">2015.09.15</span>
+                                        <span> - </span>
+                                        <span class="month-end">2015.09.30</span>
+                                        <span>&nbsp;</span>
+                                        <span class="month-proname">民生证券</span>
+                                        <span>，</span>
+                                        <span class="month-content">这是一个测试2</span>
+                                    </span>
+                            		<span class="float-right p-edit del-btn">删除</span>
+                                    <span class="float-right p-edit showbtn modify-btn monthAssignment">修改</span>
+                                </p>
+                            </li>
+                             -->
+                        </ul>
+                    </div><!--end  <div class="weekBox">-->
+                    <div class="weekBox">
+                        <div class="noteLeft">
+                            <i class="img-note"><img src="../images/declaration/note_edit.png" /></i>
+                            <p class="p-note">本周工作任务：</p>
+                        </div>
+                        
+                        <ul class="mList" id="mList_2">
+                        <!-- 
+                            <li>
+                                <p>
+                                    <span class="p-normal">
+                                        <span>1、</span>
+                                        <span class="week-start">2015.09.06</span>
+                                        <span> - </span>
+                                        <span class="week-end">2015.09.07</span>
+                                        <span>&nbsp;</span>
+                                        <span class="week-proname">中信证券</span>
+                                        <span>，</span>
+                                        <span class="week-content">这是一个测试1</span>
+                                    </span>
+                                </p>
+                            </li>
+                          -->   
+                        </ul>
+                    </div><!--end  <div class="weekBox">-->
+                    <div class="lastnext_weekBox align-center"></div> <!-- 上下周 -->
+                    <div class="cls_reportBox"></div> <!-- 日报列表 -->
+
+				</div><!--end  <div class="proMangement">-->
+                    
+            </div>   <!--end  <div class="rightContent">-->
+            
+        </div><!--end  <div class="rightBox logReport">-->
+        
+    </div>
+    <div class="showarrow"></div> 
+    <div class="showremark">我是一个备注层</div> 
+    <!--以下为遮罩层-->
+    <div class="dialog-bg"></div>
+    <div class="dialog-box" style="display:none">
+    	
+        <!--新增月任务模块-->
+        <div class="monthAssignment-box">
+            <div class="dialog-title">
+                <p>月任务分配</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <!--<p class="p-dialog-left">本月主要任务：</p>
+                    <ul class="dialog-list">
+                        
+                        <li class="dialog-list-li">
+                            <span class="p-num">1、</span>
+                            <div class="select-box text-pro">
+                                <input class="select-item" type="text" value="请选择所属项目" readonly="readonly">
+                                <ul class="select-ul">
+                                    <li>测试项目</li>
+                                    <li>中信证券</li>
+                                    <li>民生证券</li>
+                                </ul>
+                            </div>
+                            <div class="newAssignment-module-group">
+                                <span>开始日期：</span><input type="text" id="date_3" readonly class="dialog-select text-datepicker start"/>
+                                <span>结束日期：</span><input type="text" id="date_4" readonly class="dialog-select text-datepicker end"/>
+                                <textarea class="dialog-textarea newAssignment-textarea">本月需完成的任务</textarea>
+                            </div>
+                            
+                        </li>
+                    </ul>-->
+                    <!--<p class="dialog-btn-add addAssignment"><span class="img-add"></span><span>再增加一条</span></p>-->
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+            
+   		</div><!--end <div class="monthAssignment-box">-->
+        
+        <!--回复模块-->
+        <div class="reply-box">
+            <div class="dialog-title">
+                <p>回复</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <p class="p-dialog-left">回复：</p>
+                    <ul class="dialog-list">
+                        
+                        <li class="dialog-list-li">
+                                <textarea class="dialog-textarea remark-textarea">回复内容</textarea>
+                        </li>
+                    </ul>
+                    <!--<p class="dialog-btn-add addAssignment"><span class="img-add"></span><span>再增加一条</span></p>-->
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+            
+        </div><!--end <div class="reply-box">-->
+        
+        <!--修改模块-->
+        <div class="modify-box">
+            <div class="dialog-title">
+                <p>修改</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+            
+   		</div><!--end <div class="remark-box">-->
+   		
+   		<!--确认工时模块-->
+        <div class="sureTime-box">
+            <div class="dialog-title">
+                <p>确认工时</p>
+                <img class="close" src="../images/declaration/close.png" />
+            </div>
+            
+            <div class="dialog-content">
+                <div class="dialog-module-content">
+                    <ul class="dialog-list align-center">
+                        <li class="dialog-list-li">
+                            <span class="align-left align-middle inline-block85"><font color="red">*</font>确认工时</span>
+                            <input class="dialog-text suretime" type="text" value=""/>&nbsp;&nbsp;&nbsp;&nbsp;小时
+                        </li>
+                        
+                        <li class="dialog-list-li">
+                            <span class="align-left align-top inline-block85"><font color="red">*</font>确认状态</span>
+                            <div class="inline-block width200">
+                            	<input type="radio" checked="checked" name="surefinish" value="1" />&nbsp;&nbsp;已完成&nbsp;&nbsp;&nbsp;&nbsp;
+                            	<input type="radio" name="surefinish" value="0" />&nbsp;&nbsp;未完成  
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--end <div class="dialog-module-content">-->
+                <button class="dialog-btn">提交</button>
+            </div><!--end <div class="dialog-content">-->
+            
+   		</div><!--end <div class=""sureTime-box"">-->
+
+    </div>
+</body>
+</html>
